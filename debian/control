@@ -1,0 +1,64 @@
+Source: log4shib
+Section: libs
+Priority: optional
+Maintainer: Debian Shib Team <pkg-shibboleth-devel@lists.alioth.debian.org>
+Uploaders:
+ Ferenc Wágner <wferi@debian.org>,
+ Etienne Dysli Metref <etienne.dysli-metref@switch.ch>,
+Build-Depends:
+ debhelper-compat (= 13),
+Build-Depends-Indep:
+ doxygen,
+ graphviz,
+Standards-Version: 4.6.0
+Rules-Requires-Root: no
+Homepage: https://wiki.shibboleth.net/confluence/display/OpenSAML/log4shib
+Vcs-Git: https://salsa.debian.org/shib-team/log4shib.git
+Vcs-Browser: https://salsa.debian.org/shib-team/log4shib
+X-Common-Description: log4shib provides a library of C++ classes for flexible
+ logging to files, syslog, and other destinations.  It is modeled after the
+ log4j Java library, staying as close to that API as is reasonable.
+ .
+ log4shib is a fork of the log4cpp library with additional fixes and
+ modifications to improve its thread safety and robustness.  It is
+ primarily intended for use by the Shibboleth web authentication
+ system.
+
+Package: liblog4shib2
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Description: log4j-style configurable logging library for C++ (runtime)
+ ${S:X-Common-Description}
+ .
+ This package contains the files necessary for running applications that
+ use the log4shib library.
+
+Package: liblog4shib-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends:
+ liblog4shib2 (= ${binary:Version}),
+ ${misc:Depends},
+Suggests:
+ liblog4shib-doc,
+Description: log4j-style configurable logging library for C++ (development)
+ ${S:X-Common-Description}
+ .
+ This package contains the headers and other necessary files to build
+ applications or libraries that use or extend the log4shib library.
+
+Package: liblog4shib-doc
+Section: doc
+Architecture: all
+Multi-Arch: foreign
+Depends:
+ ${misc:Depends},
+Description: log4j-style configurable logging library for C++ (API docs)
+ ${S:X-Common-Description}
+ .
+ This package contains the log4shib library API documentation generated
+ by Doxygen.

@@ -1,0 +1,52 @@
+lib_LTLIBRARIES = liblog4shib.la
+
+AM_CPPFLAGS = -I$(top_srcdir)/include
+
+noinst_HEADERS = snprintf.c
+
+liblog4shib_la_SOURCES = \
+	Appender.cpp \
+	AppenderSkeleton.cpp \
+	LayoutAppender.cpp \
+	FileAppender.cpp \
+	RollingFileAppender.cpp \
+	FixedContextCategory.cpp \
+	IdsaAppender.cpp \
+	OstreamAppender.cpp \
+	StringQueueAppender.cpp \
+	SyslogAppender.cpp \
+	RemoteSyslogAppender.cpp \
+	SimpleLayout.cpp \
+	BasicLayout.cpp \
+	PatternLayout.cpp \
+	Category.cpp \
+	CategoryStream.cpp \
+	HierarchyMaintainer.cpp \
+	Configurator.cpp \
+	BasicConfigurator.cpp \
+	SimpleConfigurator.cpp \
+	PropertyConfigurator.cpp \
+	PropertyConfiguratorImpl.hh \
+	PropertyConfiguratorImpl.cpp \
+	LoggingEvent.cpp \
+	Priority.cpp \
+	NDC.cpp \
+	Filter.cpp \
+	TimeStamp.cpp \
+	StringUtil.hh \
+	StringUtil.cpp \
+	Properties.hh \
+	Properties.cpp \
+	Win32DebugAppender.cpp \
+	NTEventLogAppender.cpp \
+	DllMain.cpp \
+	DummyThreads.cpp \
+	MSThreads.cpp \
+	OmniThreads.cpp \
+	PThreads.cpp \
+	PortabilityImpl.hh \
+	PortabilityImpl.cpp \
+	AbortAppender.cpp
+
+liblog4shib_la_LDFLAGS = -version-info @LT_VERSION@
+liblog4shib_la_LIBADD = $(PTHREAD_LIBS)

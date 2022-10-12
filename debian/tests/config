@@ -1,0 +1,7 @@
+#!/bin/sh -ex
+
+cd tests
+g++ $(pkg-config --cflags log4shib) \
+    -o testConfig testConfig.cpp \
+    $(pkg-config --libs log4shib)
+./testConfig

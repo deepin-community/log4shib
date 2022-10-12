@@ -1,0 +1,9 @@
+log4shib.rootCategory=DEBUG, rootAppender
+log4shib.category.rootCategory=DEBUG, rootAppender
+log4shib.category.flinby=DEBUG, rootAppender
+#log4shib.rootCategory=DEBUG, rootAppender
+#log4shib.category.=DEBUG, rootAppender
+
+log4shib.appender.rootAppender=ConsoleAppender
+log4shib.appender.rootAppender.layout=PatternLayout
+log4shib.appender.rootAppender.layout.ConversionPattern=%m%n

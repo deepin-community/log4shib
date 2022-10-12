@@ -1,0 +1,4 @@
+Tests: config
+Depends: liblog4shib-dev, g++, pkg-config
+# set -x writes to stderr, so:
+Restrictions: allow-stderr

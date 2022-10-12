@@ -1,0 +1,9 @@
+Document: liblog4shib-doc
+Title: log4shib API documentation
+Author: Bastiaan Bakker and Scott Cantor
+Abstract: Doxygen generated HTML documentation of the log4shib library.
+Section: Programming/C++
+
+Format: HTML
+Index: /usr/share/doc/liblog4shib-doc/html/index.html
+Files: /usr/share/doc/liblog4shib-doc/html/*

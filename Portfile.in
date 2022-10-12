@@ -1,0 +1,23 @@
+PortSystem          1.0
+
+name                @PACKAGE@
+version             @PACKAGE_VERSION@
+categories          sysutils shibboleth devel
+maintainers         snc scantor
+description         configurable logging for C++, fork of log4cpp
+long_description    Log4shib is library of C++ classes for flexible logging to \
+                    files, syslog, IDSA and other destinations. It is modeled \
+                    after the Log4j Java library, staying as close to their \
+                    API as is reasonable.
+homepage            http://shibboleth.net/
+
+platforms           darwin
+
+master_sites        http://shibboleth.net/downloads/log4shib/${version}/
+checksums           sha1 @CHECKSUM@
+
+configure.args      --disable-doxygen \
+                    --disable-dot \
+                    --disable-html-docs \
+                    --disable-latex-docs \
+                    --disable-static

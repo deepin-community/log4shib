@@ -1,0 +1,224 @@
+log4shib (2.0.1-1) unstable; urgency=medium
+
+  * [88c0ce2] New upstream release (2.0.1)
+  * [44ad0d5] Remove patches (all upstreamed)
+
+ -- Ferenc Wágner <wferi@debian.org>  Sun, 24 Oct 2021 15:39:55 +0200
+
+log4shib (2.0.0-3) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * [e33dabe] Set debhelper-compat version in Build-Depends.
+    Changes-By: lintian-brush
+    Fixes: lintian: uses-debhelper-compat-file
+  * [c9a9757] Re-export upstream signing key without extra signatures.
+    Changes-By: lintian-brush
+    Fixes: lintian: public-upstream-key-not-minimal
+  * [2fcfee0] Set field Upstream-Name in debian/copyright.
+    Changes-By: lintian-brush
+
+  [ Ferenc Wágner ]
+  * [8f0aa87] New patch: Remove dynamic exception specifications forbidden by
+    ISO C++17
+    (Closes: #984222)
+  * [a04593f] Override Lintian warning about national encoding in HTML file
+  * [9f39c19] Bump watch file format version to 4
+  * [ade9e8e] Update Standards-Version to 4.6.0 (no changes required)
+  * [5d4c277] Switch to Debhelper compat 13 and simplify rules
+  * [bc6e3b7] Enable rootless build
+  * [0200148] I don't plan to provide a symbols control file
+
+ -- Ferenc Wágner <wferi@debian.org>  Tue, 12 Oct 2021 14:57:35 +0200
+
+log4shib (2.0.0-2) unstable; urgency=medium
+
+  * [0757f12] Switch to watching bzip2 compressed tarballs
+  * [67ed4d0] Add build system patches for better FLAGS handling
+  * [c9beebe] Stop fiddling with configure switches
+    --enable-debug has nothing to do with the optimization level,
+    and --disable-static is the default with our latest patches.
+  * [ce131c8] Update Standards-Version to 4.2.1 (no changes required)
+  * Upload to unstable
+
+ -- Ferenc Wágner <wferi@debian.org>  Sat, 24 Nov 2018 16:10:58 +0100
+
+log4shib (2.0.0-1) experimental; urgency=medium
+
+  * [338086a] Use the 'replace' merge mode.
+    This avoids conflicts as upstream is removing its debian directory.
+    Unrelated change: the pristine-tar option is generic.
+  * [f3f1da1] Upstream version 2.0.0
+  * [9e39ece] Drop our patches (everything went upstream)
+  * [1f97dec] Upstream dropped the old style config script.
+    It isn't compatible with multiarch, and pkg-config is already present
+    as a better alternative.
+  * [8e20926] Make liblog4shib-dev Multi-Arch: same.
+    Made possible by dropping log4shib-config (the old-style config script).
+  * [07521ee] Generate verbose changelog entries
+  * [1c3204e] Update Standards-Version to 4.1.5 (no changes required)
+  * [90cefb7] Rename library package to match new SO version (2)
+  * [e8fc1f9] Multiarch support does not require Pre-Depends anymore
+
+ -- Ferenc Wágner <wferi@debian.org>  Sun, 29 Jul 2018 23:00:10 +0200
+
+log4shib (1.0.9-4) unstable; urgency=medium
+
+  [ Etienne Dysli Metref ]
+  * [a860f3a] Add myself to uploaders
+
+  [ Russ Allbery ]
+  * [42ddc06] Remove myself from Uploaders
+
+  [ Ferenc Wágner ]
+  * [9ef519a] Make liblog4shib-doc Multi-Arch: foreign
+  * [a3a9ef3] Follow upstream URL change in debian/watch and debian/copyright
+  * [72ba091] Update Standards-Version to 4.1.4 (no changes required)
+  * [31367e5] Switch to Debhelper compat level 11
+  * [e029f44] Simplify removal of Doxygen .md5 files
+  * [d1715f0] Factor out common part of package descriptions
+  * [44b3bd2] Lintian does not emit embedded-javascript-library for Doxygen
+    anymore
+  * [6004c44] Migrate to salsa.debian.org/shib-team
+  * [07ccf16] Clean up trailing whitespace in debian/changelog
+  * [cc73d45] Migrate to my Debian address
+  * [40f263c] Add simple autopkgtest compiling and running a build test
+
+ -- Ferenc Wágner <wferi@debian.org>  Tue, 15 May 2018 18:39:59 +0200
+
+log4shib (1.0.9-3) unstable; urgency=medium
+
+  * [41cb8de] Build only the documentation for indep builds (Closes: #814435)
+  * [9c92c67] Enable parallel builds
+  * [a659bd6] Use secure HTTPS transport in the Vcs-* fields
+  * [1446f60] Update Standards-Version to 3.9.8 (no changes needed)
+  * [0628729] Fix the build flag leak by an upstreamable patch
+  * [b20a1a1] New patch Fix-Doxygen-formatting-issues.patch
+  * [8df8e66] New patch Remove-obsolete-MAX_DOT_GRAPH_-WIDTH-HEIGHT-
+    Doxygen-.patch
+  * [d69ed62] New patch Drop-superfluous-scope-to-help-Doxygen-find-the-
+    decl.patch
+  * [04c8101] Remove the unneded files instead of ignoring them
+  * [fbc0beb] New patch socket-and-gethostbyname-are-often-provided-by-
+    libc.patch
+
+ -- Ferenc Wágner <wferi@niif.hu>  Tue, 02 Aug 2016 11:56:23 +0200
+
+log4shib (1.0.9-2) unstable; urgency=medium
+
+  * [5b21418] Use a wildcard to match the multiarch part of the file path
+    when removing the *.la file in debian/rules.
+
+ -- Russ Allbery <rra@debian.org>  Sat, 16 Jan 2016 14:58:08 -0800
+
+log4shib (1.0.9-1) unstable; urgency=medium
+
+  * [cc1dc2c] Add debian/gbp.conf for DEP-14 layout
+  * [01491cf] Run wrap-and-sort -ast on the package
+  * [48c1fea] Check signature in watch file
+  * [79a91bd] Upstream version 1.0.9
+  * [70e40e7] Convert our single upstream patch into a gbp patch queue
+  * [6e597d0] Add myself to Uploaders
+  * [9d2e1ee] dh_auto_configure uses --disable-dependency-tracking by default
+  * [e808380] The default compressor is xz since jessie
+  * [47cb428] Enable all hardening features
+  * [a868151] Update Standards-Version to 3.9.6 (no changes needed)
+  * [09a4536] Replacing the jquery.js embedded by Doxygen risks breaking the
+    docs
+  * [41789a5] No need to separate the doc-base files by extension
+  * [2e9d351] Don't ship the static library
+  * [9b68d45] Omit useless MD5 files generated by Doxygen
+  * [66da772] Specify the empty pkg-config Cflags setting via a variable
+  * [68876b7] New license for config/ltmain.sh and m4/ax_pthread.m4
+  * Arch and indep builds require different pruning
+
+ -- Ferenc Wágner <wferi@niif.hu>  Fri, 15 Jan 2016 00:05:41 +0100
+
+log4shib (1.0.8-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Rename library packages for g++5 ABI transition (closes: 791193).
+
+ -- Julien Cristau <jcristau@debian.org>  Sun, 16 Aug 2015 17:46:01 +0200
+
+log4shib (1.0.8-1) unstable; urgency=low
+
+  * New upstream release.
+    - Use upstream fix for converting the thread ID to a string.
+  * Move doxygen and graphviz to Build-Depends-Indep now that the buildds
+    have proper arch-specific build support.  The upstream build system
+    should automatically decline to build the documentation if those
+    packages aren't installed.
+
+ -- Russ Allbery <rra@debian.org>  Tue, 25 Jun 2013 16:11:47 -0700
+
+log4shib (1.0.7-1) unstable; urgency=low
+
+  * New upstream release.
+    - Mark log sockets close-on-exec.
+  * Increase the buffer for the thread ID to handle platforms where a long
+    is 64 bits.  This should hopefully fix the FTBFS on ia64.
+
+ -- Russ Allbery <rra@debian.org>  Sun, 23 Jun 2013 15:01:10 -0700
+
+log4shib (1.0.6-1) unstable; urgency=low
+
+  * New upstream release.
+    - Limit file handle leakage from prop-based configs.
+
+ -- Russ Allbery <rra@debian.org>  Thu, 23 May 2013 19:41:31 -0700
+
+log4shib (1.0.5-1) unstable; urgency=low
+
+  * New upstream release.
+  * Switch to xz compression for *.debian.tar and the *.deb packages.
+  * Use canonical URLs for Vcs-Browser and Vcs-Git.
+  * Update standards version to 3.9.4 (no changes required).
+
+ -- Russ Allbery <rra@debian.org>  Wed, 22 May 2013 20:21:15 -0700
+
+log4shib (1.0.4-1) unstable; urgency=low
+
+  * Initial upload to Debian based on the Debian packaging done by Scott
+    Cantor and included with the upstream source.  (Closes: #666263)
+  * New upstream release.
+    - Fix error handling when Appenders fail.
+    - Fix crash when file appender can't open file.
+    - Fix varargs issue on x86_64.
+  * Patch upstream configure.in to declare m4 as the macro directory so
+    that autoreconf works properly.
+  * Write a manual page for log4shib-config in POD and generate it and
+    install it as part of the package build.
+  * Don't install the section 3 man pages generated by Doxygen.  Many of
+    them are malformatted, and they're not horribly useful.  The same
+    information is available in the HTML documentation.
+  * Add Maintainer, Uploaders, and Vcs-* headers for the pkg-shibboleth
+    packaging team.
+  * Work around issues with -lpthread and libtool and with picking up
+    dpkg-buildflags options in pkgconfig using code copied from
+    opensaml2.
+  * Suggest liblog4shib-doc from liblog4shib-dev.
+  * Remove any copy of jQuery installed by Doxygen and use the version
+    packaged for Debian.
+  * Regenerate the build system with dh_autoreconf during build.
+  * Enable --as-needed to avoid unnecessary build dependencies.
+  * Update package long descriptions from the ITP.
+  * Change package section to devel from contrib/devel.
+  * Lower the priority to extra.
+  * Convert the shared library package to multiarch.
+  * Add a watch file.
+  * Update debhelper compatibility level to V9.
+    - Add ${misc:Depends} to all dependencies.
+    - Use dpkg-buildflags for compiler and linker flags.
+    - Enable hardening flags.
+  * Switch to Debian source package format 3.0 (quilt).
+  * Update standards version to 3.9.3.
+  * Rewrite debian/copyright in the copyright-format 1.0 format and
+    include more licensing and copyright information.
+
+ -- Russ Allbery <rra@debian.org>  Tue, 05 Jun 2012 21:20:25 -0700
+
+log4shib (1.0-1) unstable; urgency=low
+
+  * The debian packaging files in this directory build un-official packages.
+
+ -- Scott Cantor <cantor.2@osu.edu>  Mon, 30 Jul 2007 00:00:00 -0500

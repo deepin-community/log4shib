@@ -1,0 +1,4 @@
+# See https://wiki.debian.org/UsingSymbolsFiles and follow to
+# https://www.eyrie.org/~eagle/journal/2012-02/001.html.
+# In short: symbols files are not worth providing for Shibboleth.
+no-symbols-control-file usr/lib/*/liblog4shib.so.*

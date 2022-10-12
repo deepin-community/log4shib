@@ -1,0 +1,28 @@
+#!/usr/bin/make -f
+
+# Enable compiler hardening flags.
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+# Force linking with -lpthread, working around a bug in libtool that drops
+# the linkage because it uses -nostdlib.  See #468555.
+export DEB_LDFLAGS_MAINT_APPEND = -lpthread
+
+%:
+	dh $@
+
+override_dh_auto_build-indep:
+	$(MAKE) docs
+
+# the test target would build the software
+override_dh_auto_test-indep:
+
+override_dh_auto_install-indep:
+	$(MAKE) -C doc DESTDIR=$(CURDIR)/debian/tmp install
+
+execute_after_dh_auto_install:
+	rm -vf debian/tmp/usr/share/doc/log4shib-*/api/html/api/*.md5
+	rm -vf debian/tmp/usr/lib/*/liblog4shib.la
+	# Many man pages are malformatted, and they're not horribly useful.
+	# We don't ship them, because the same information is available in the
+	# HTML documentation (3b6fa5e).
+	rm -rvf debian/tmp/usr/share/man/man3
